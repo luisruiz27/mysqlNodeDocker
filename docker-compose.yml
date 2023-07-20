@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  mi-app: 
+    build: .  
+    container_name: project-node 
+    ports:
+      - 8080:3000
+    links:
+      - bdmongo 
+  bdmongo: 
+    image: mongo
+    container_name: proyect-mongo 
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO-INITDB_ROOT_USERNAME=root
+      - MONGO-INITDB_ROOT_PASSWORD=adderlin
